@@ -1,0 +1,42 @@
+<ion-view view-title="注册">
+    <ion-content class="padding has-header">
+        <form name="myForm" novalidate>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <i class="icon ion-android-call positive"></i>
+                    <input type="number" placeholder="输入手机号" name="phoneNumber"
+                           ng-minlength="11" ng-maxlength="11" ng-pattern="/^(((1[0-9]{2})|159|153)+\d{8})$/" ng-model="formUser.phoneNumber" required/>
+                    <i class="icon ion-close-circled assertive" ng-show="myForm.phoneNumber.$dirty && myForm.phoneNumber.$invalid"></i>
+                    <i class="icon ion-checkmark-circled balanced" ng-show="myForm.phoneNumber.$dirty && myForm.phoneNumber.$valid"></i>
+                </label>
+
+                <!--
+                <div class="item item-input item-button-right">
+                    <i class="icon ion-social-hackernews positive"></i>
+                    <input type="text" placeholder="手机验证码" name="checkCode" ng-model="formUser.checkCode" required>
+                    <button class="button button-outline button-positive" style="font-size: 10px;" ng-click="getCheckCode()">获取验证码</button>
+                    <i class="icon ion-close-circled assertive" ng-show="myForm.checkCode.$dirty && myForm.checkCode.$invalid"></i>
+                </div>
+                -->
+                <div class="item item-input">
+                    <i class="icon ion-ios-unlocked positive"></i>
+                    <input type="password" placeholder="6-32位字母数字组合" name="password" ng-minlength="6" ng-maxlength="32" ng-model="formUser.password" required>
+                    <i class="icon ion-close-circled assertive" ng-show="myForm.password.$dirty && myForm.password.$invalid"></i>
+                    <i class="icon ion-checkmark-circled balanced" ng-show="myForm.password.$dirty && myForm.password.$valid"></i>
+                </div>
+                <div class="item item-input">
+                    <i class="icon ion-android-lock positive"></i>
+                    <input type="password" placeholder="确认密码" name="rePassword" ng-minlength="6" ng-maxlength="32" ng-model="formUser.rePassword" required>
+                    <i class="icon ion-close-circled assertive" ng-show="myForm.rePassword.$dirty && myForm.rePassword.$invalid"></i>
+                    <i class="icon ion-checkmark-circled balanced" ng-show="myForm.rePassword.$dirty && myForm.rePassword.$valid"></i>
+                </div>
+
+                  <input  class="button  button-block button-small button-positive" type="submit" ng-disabled="myForm.$invalid" ng-click="doRegister()" value="注册"/>
+
+
+            </div>
+      </form>
+
+
+    </ion-content>
+</ion-view>

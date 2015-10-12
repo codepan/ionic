@@ -1,0 +1,29 @@
+<ion-view title="供求平台">
+    <!--本视图可见时，ion-nav-buttons将被导航框架载入导航栏-->
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-search" ng-click="openModal()"></button>
+    </ion-nav-buttons>
+
+    <style type="text/css">
+
+
+    </style>
+
+
+    <ion-content>
+
+        <div class="list">
+            <a class="item" ng-repeat="item in items" href="#/tab/gqpt/{{item.CONTENTID}}">
+                <h3>类型：{{item.TYPENAME}}</h3>
+                <h3 class="">标题：{{item.CONTENTTILTLE}}</h3>
+                <div class="" style="display: inline-block">发布人：{{item.CONTENTAUTHOR}}</div>
+                <div style="display: inline-block;float: right">发布时间：{{item.CONTENTDATE.year+1900+"-"+item.CONTENTDATE.month+"-"+item.CONTENTDATE.date}}</div>
+            </a>
+        </div>
+
+        <!--上拉加载更多-->
+        <ion-infinite-scroll on-infinite="loadMore();" spinner="android"  distance="1%" immediate-check="true"  ng-if="isHaveMoreData"></ion-infinite-scroll>
+    </ion-content>
+
+
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-view title="资产估算">
+
+    <ion-content>
+
+        <div class="list">
+            <a class="item" ng-repeat="item in items" href="#/tab/zcgs/{{item.CONTENTID}}">
+                <h3 class="">{{item.title}}</h3>
+                <h3>类型：{{item.publishType}}</h3>
+                <div class="" style="display: inline-block">发布人：{{item.CONTENTAUTHOR}}</div>
+                <div style="display: inline-block;float: right">发布时间：{{item.CONTENTDATE.year+1900+"-"+item.CONTENTDATE.month+"-"+item.CONTENTDATE.date}}</div>
+            </a>
+        </div>
+
+        <ion-infinite-scroll   on-infinite="loadMore();" spinner="android" distance="1%" immediate-check="true" ng-if="isHaveMoreData">
+        </ion-infinite-scroll>
+
+    </ion-content>
+
+
+</ion-view>

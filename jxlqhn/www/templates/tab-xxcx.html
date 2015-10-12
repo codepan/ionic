@@ -1,0 +1,52 @@
+<ion-view title="信息查询">
+    <!--本视图可见时，ion-nav-buttons将被导航框架载入导航栏-->
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-search" ng-click="openModal()"></button>
+    </ion-nav-buttons>
+
+    <div class="bar subheader-bar has-header">
+        <div class="row text-center">
+            <div class="col two-level-nav" ng-click="showTab('林权流转登记')" ng-class="{'blue':isOne}">林权流转</div>
+            <div class="col two-level-nav" ng-click="showTab('林权抵押登记')" ng-class="{'blue':isTwo}">林权抵押</div>
+        </div>
+    </div>
+    <ion-content class="has-subheader">
+
+        <div ng-include="'林权流转登记.html'" ng-if="tabIndex=='林权流转登记'"></div>
+        <div ng-include="'林权抵押登记.html'" ng-if="tabIndex=='林权抵押登记'"></div>
+
+
+        <script type="text/ng-template" id="林权流转登记.html">
+            <div class="list">
+                <a class="item" ng-repeat="item in items4LQLZ" href="#/tab/xxcx/{{item.ZDBH}}">
+                    <h3>类型：{{item.CXLX}}</h3>
+                    <div class="" style="display: inline-block">发布人：{{item.DWGR_ZC}}</div>
+                    <h3>坐落于：{{item.ZL}}</h3>
+                    <h3>林地所有权权利人：{{item.LDSYQQLR}}</h3>
+                </a>
+                <ion-infinite-scroll   on-infinite="loadMoreLQLZ();" spinner="android" distance="1%" immediate-check="true" ng-if="isHaveMoreData">
+                </ion-infinite-scroll>
+            </div>
+
+        </script>
+
+        <script type="text/ng-template" id="林权抵押登记.html">
+            <div class="list">
+                <a class="item" ng-repeat="item in items4LQDY" href="#/tab/xxcx/{{item.ZDBH}}">
+                    <h3>类型：{{item.CXLX}}</h3>
+                    <div class="" style="display: inline-block">发布人：{{item.DWGR_ZC}}</div>
+                    <h3>坐落于：{{item.ZL}}</h3>
+                    <h3>林地所有权权利人：{{item.LDSYQQLR}}</h3>
+                </a>
+                <ion-infinite-scroll   on-infinite="loadMoreLQDY();" spinner="android"  distance="1%" immediate-check="true" ng-if="isHaveMoreData">
+                </ion-infinite-scroll>
+            </div>
+
+        </script>
+
+
+
+    </ion-content>
+
+
+</ion-view>

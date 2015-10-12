@@ -1,0 +1,34 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">供应/求购信息查询</h1>
+        <a class="button" ng-click="closeModal();">关闭</a>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <form name="myForm" novalidate>
+            <div class="list list-inset">
+                <div class="item item-input">
+                    <span class="input-label">发布时间：</span>
+                    <input type="text" placeholder="" name="releaseTime" ng-model="queryConditions.releaseTime" required>
+                </div>
+
+                <div class="item item-input">
+                    <span class="input-label">发布人：</span>
+                    <input type="text" placeholder="" name="publisher" ng-model="queryConditions.publisher" required>
+                </div>
+
+                <label class="item item-input item-select">
+                    <span class="input-label">发布类型：</span>
+                    <select  ng-model="queryConditions.type">
+                        <option name="type" value="" selected>不限</option>
+                        <option name="type" value="供应" selected>供应</option>
+                        <option name="type" value="求购">求购</option>
+                    </select>
+                </label>
+
+                <button class="button button-full button-positive" ng-click="findByConditions()" style="border-radius:30px;">查询</button>
+
+            </div>
+        </form>
+
+    </ion-content>
+    </ion-modal-view>

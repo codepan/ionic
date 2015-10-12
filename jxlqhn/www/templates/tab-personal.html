@@ -1,0 +1,29 @@
+<ion-view title="我">
+    <!--本视图可见时，ion-nav-buttons将被导航框架载入导航栏-->
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-exit"  ng-click="showConfirm();"></button>
+    </ion-nav-buttons>
+
+    <div class="bar subheader-bar has-header">
+
+        <div class="row text-center">
+            <div class="col two-level-nav" ng-click="show(1)" ng-class="{'blue':isOne}">我的登记</div>
+            <div class="col two-level-nav" ng-click="show(2)" ng-class="{'blue':isTwo}">我的信息</div>
+        </div>
+    </div>
+    <div class="content has-subheader">
+        <div ng-include="'1.html'" ng-if="tab==1"></div>
+        <div ng-include="'2.html'" ng-if="tab==2"></div>
+        <script type="text/ng-template" id="1.html">
+            <p>This is the content of the template.</p><p>This is the content of the template.我的登记</p>
+        </script>
+        <script type="text/ng-template" id="2.html">
+            <div class=" list list-inset">
+                <ion-item>用户名：{{user.C_USERNAME}}</ion-item>
+                <ion-item>手机号：{{user.C_USERNAME}}</ion-item>
+                <ion-item>密码：{{user.C_PWD}}</ion-item>
+            </div>
+
+        </script>
+    </div>
+</ion-view>

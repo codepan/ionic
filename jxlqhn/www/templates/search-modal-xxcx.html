@@ -1,0 +1,72 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive">
+        <h2 class="title" ng-if="tabIndex=='林权流转登记'">林权流转登记查询</h2>
+        <h2 class="title" ng-if="tabIndex=='林权抵押登记'">林权抵押登记查询</h2>
+        <a class="button" ng-click="closeModal();">关闭</a>
+    </ion-header-bar>
+    <ion-content>
+
+        <div class="padding">
+            <form>
+                <div class="list">
+                    <div ng-if="tabIndex=='林权流转登记'" ng-include="'lqlzdj'"></div>
+                    <div ng-if="tabIndex=='林权抵押登记'" ng-include="'lqdydj'"></div>
+
+
+
+                    <script type="text/ng-template" id="lqlzdj">
+                        <label class="item item-input">
+                            <span class="input-label">权利人姓名：</span>
+                            <input ng-model="queryConditions." type="text">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">身份证号：</span>
+                            <input ng-model="newUser.email" type="text">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">发证号：</span>
+                            <input ng-model="newUser.lastName" type="text">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">证书编号：</span>
+                            <input ng-model="newUser.email" type="text">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">登记表编号：</span>
+                            <input ng-model="newUser.email" type="text">
+                        </label>
+                    </script>
+
+                    <script type="text/ng-template" id="lqdydj">
+                        <label class="item item-input">
+                            <span class="input-label">抵押人：</span>
+                            <input ng-model="queryConditions." type="text">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">抵押权人：</span>
+                            <input ng-model="queryConditions." type="text">
+                        </label>
+                        <label class="item item-input">
+                            <span class="input-label">抵押申请编号：</span>
+                            <input ng-model="queryConditions." type="text">
+                        </label>
+                        <label class="item item-input item-select">
+                            <span class="input-label">抵押申请状态：</span>
+                            <select  ng-model="queryConditions.type">
+                                <option name="type" value="" selected>--请选择--</option>
+                                <option name="type" value="供应">已申请，待审批</option>
+                                <option name="type" value="求购">已审批，待打印</option>
+                                <option name="type" value="求购">已打印</option>
+                                <option name="type" value="求购">已作废</option>
+                            </select>
+                        </label>
+
+                    </script>
+
+                    <button class="button button-full button-positive" ng-click="findByConditions()" style="border-radius:30px;">查询</button>
+                </div>
+            </form>
+        </div>
+
+    </ion-content>
+</ion-modal-view>

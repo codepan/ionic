@@ -1,0 +1,38 @@
+<ion-view view-title="会员登录">
+    <ion-content>
+        <div class="text-center" style="margin-top: 40px;">
+           <h3>江西省林权服务信息系统</h3>
+        </div>
+        <div style="margin-top: 120px;">
+            <form name="myForm" novalidate>
+                <div class="list list-inset">
+
+                    <label class="item item-input">
+                        <i class="icon ion-android-call positive"></i>
+                        <input type="number" placeholder="输入手机号" name="phoneNumber"
+                               ng-minlength="11" ng-maxlength="11" ng-pattern="/^(((1[0-9]{2})|159|153)+\d{8})$/" ng-model="formUser.phoneNumber" required/>
+                        <i class="icon ion-close-circled assertive" ng-show="myForm.phoneNumber.$dirty && myForm.phoneNumber.$invalid"></i>
+                        <i class="icon ion-checkmark-circled balanced" ng-show="myForm.phoneNumber.$dirty && myForm.phoneNumber.$valid"></i>
+                    </label>
+
+
+                    <label class="item item-input">
+                        <i class="icon ion-android-lock positive"></i>
+                        <input type="password" placeholder="6-32位字母数字组合" name="password" ng-minlength="6" ng-maxlength="32" ng-model="formUser.password" required>
+                        <i class="icon ion-close-circled assertive" ng-show="myForm.password.$dirty && myForm.password.$invalid"></i>
+                        <i class="icon ion-checkmark-circled balanced" ng-show="myForm.password.$dirty && myForm.password.$valid"></i>
+                    </label>
+
+                    <input  class="button  button-block button-small button-positive" type="submit" ng-disabled="myForm.$invalid" ng-click="doLogin()" value="登录"/>
+
+                    <div class="button button-block button-small" style="background-color: peru;color:white" ui-sref="tab.main">我是游客，随便逛逛</div>
+                    <div class="row">
+                        <div class="col button button-clear button-positive" ui-sref="register">注册会员</div>
+                        <div class="col button button-clear" ui-sref="modifyPassword">忘记密码</div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

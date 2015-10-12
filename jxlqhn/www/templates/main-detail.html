@@ -1,0 +1,12 @@
+<ion-view title="消息内容">
+    <ion-content>
+        <div class="padding">
+            <div> <h3 class="text-center">{{detailData.title}}</h3></div>
+            <div class="row text-center" style="border-bottom:4px solid lightsteelblue;">
+                <div class="col">发布时间：{{detailData.CONTENTDATE.year+1900+"-"+detailData.CONTENTDATE.month+"-"+detailData.CONTENTDATE.date}}</div>
+                <div class="col">发布人：{{detailData.CONTENTAUTHOR}}</div>
+            </div>
+            <div class="" style="margin-top:10%;padding:5%;line-height: 30px;" ng-bind-html="detailData.CONTENTTXT"></div>
+        </div>
+    </ion-content>
+</ion-view>
